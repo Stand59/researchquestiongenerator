@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+
+    <title>Brainstorming Activity</title>
+</head>
+
+<body>
+   
+        <div for="1stquestion">What would you do if you had two hours of free time? </div>
+        <br>
+        <input type="text" id="1stanswer" placeholder="Your answer" name="pot1" required minlenth="3" maxlength="200">
+        <button id="myBtn" type="submit" class="btn-primary" >Next Question</button>
+ 
+    
+    <p id="showinputhere"></p>
+
+    <script>
+        var answer1;
+        document.getElementById("myBtn").addEventListener("click", myFunction);
+
+        function myFunction() {
+            answer1 = document.getElementById("1stanswer").value;
+            console.log(answer1);
+            send();
+            location.href='./topics.html?answer1=' + answer1.value;
+                }
+        
+        function send() {
+            console.log(answer1);
+        }
+    </script>
+
+</body>
+
+</html>
