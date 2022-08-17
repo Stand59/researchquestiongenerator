@@ -29,7 +29,8 @@
             answer1 = document.getElementById("1stanswer").value;
             console.log(answer1);
             send();
-            location.href='./topics.html?answer1=' + answer1.value;
+            localStorage.setItem( "answer1", answer1);
+            location.href='./topics.html'
                 }
         
         function send() {

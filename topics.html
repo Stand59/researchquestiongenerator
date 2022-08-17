@@ -20,7 +20,9 @@
     
         
         <script>
-            document.getElementById('input').innerHTML = answer1 ;
+            answer1 = localStorage.getItem("answer1");
+            console.log(answer1);
+            document.getElementById('input1').innerHTML = answer1 ;
         </script>
       </body>
 </body>
