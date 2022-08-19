@@ -13,16 +13,52 @@
 
 <body>
     <body>  
-        <p>Here is a list of possible topics:</p>
-        <ul>
-            <li id="input1"></li>
-        </ul>
+        <p>Here is a list of possible topics. Select 2 of these topics.</p>
+        <input type="checkbox" name="group"  onclick="onlyOne(this)"> <span id="input1"> </span> </input>
+        <br>
+        <input type="checkbox" name="group" onclick="onlyOne(this)"> <span id="input2"> </span> </input>
+        <br>
+        <input type="checkbox" name="group" onclick="onlyOne(this)"> <span id="input3" > </span> </input>
+        <br>
+        <input type="checkbox" name="group" onclick="onlyOne(this)"> <span id="input4" > </span> </input>
     
+        <select name="Country" multiple size="5">
+            <option value="USA">USA</option>
+            <option value="Russia">Russia</option>
+            <option value="India">India</option>
+            <option value="Britain">Britain</option>
+        </select>
         
         <script>
+
+            $(function()
+            {
+            $(".js-example-basic-multiple").select2();
+            });
+            $(".js-example-basic-multiple-limit").select2(
+            {
+            maximumSelectionLength: 2
+            });
             answer1 = localStorage.getItem("answer1");
+            answer2 = localStorage.getItem("answer2");
+            answer3 = localStorage.getItem("answer3");
+            answer4 = localStorage.getItem("answer4");
             console.log(answer1);
+            console.log(answer2);
             document.getElementById('input1').innerHTML = answer1 ;
+            document.getElementById('input2').innerHTML = answer2 ;
+            document.getElementById('input3').innerHTML = answer3 ;
+            document.getElementById('input4').innerHTML = answer4 ;
+            
+            function onlyOne(checkbox) {
+                var checkboxes = document.getElementsByName('group')
+                checkboxes.forEach((item) => {
+                    if (item !== checkbox) item.checked = false
+                 })
+            }
+
+            //https://www.plus2net.com/javascript_tutorial/checkbox-limit.php//
+
         </script>
       </body>
 </body>

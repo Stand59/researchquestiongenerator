@@ -12,31 +12,56 @@
 </head>
 
 <body>
-   
-        <div for="1stquestion">What would you do if you had two hours of free time? </div>
+    <span id="content">
+        <div id="content">What would you do if you had two hours of free time? </div>
         <br>
-        <input type="text" id="1stanswer" placeholder="Your answer" name="pot1" required minlenth="3" maxlength="200">
+        <input type="text" id="1stanswer" placeholder="Your answer" name="pot1" required minlenth="3" maxlength="200" onkeydown = "if (event.keyCode == 13)
+        document.getElementById('myBtn').click()">
         <button id="myBtn" type="submit" class="btn-primary" >Next Question</button>
- 
+    </span>
     
-    <p id="showinputhere"></p>
 
     <script>
         var answer1;
+        var answer2;
         document.getElementById("myBtn").addEventListener("click", myFunction);
+        
 
         function myFunction() {
             answer1 = document.getElementById("1stanswer").value;
             console.log(answer1);
-            send();
             localStorage.setItem( "answer1", answer1);
-            location.href='./topics.html'
-                }
-        
-        function send() {
-            console.log(answer1);
+            document.getElementById("content").innerHTML = 
+            `<div id="content2">What was the topic of your last text message? </div> <br> <input type="text" id="2answer" placeholder="Your answer" name="pot2" required minlenth="3" maxlength="200"onkeydown = "if (event.keyCode == 13) document.getElementById('myBtn2').click()"> <button id="myBtn2" type="submit" class="btn-primary" >Next Question</button>`
+            document.getElementById("myBtn2").addEventListener("click", thirdQuestion);
         }
-    </script>
+
+        function thirdQuestion () {
+            answer2 = document.getElementById("2answer").value;
+            console.log(answer2);
+            localStorage.setItem( "answer2", answer2);
+            document.getElementById("content").innerHTML = 
+            `<div id="content3">What was the subject of the last tick-tock you watched? </div> <br> <input type="text" id="3answer" placeholder="Your answer" name="pot3" required minlenth="3" maxlength="200" onkeydown = "if (event.keyCode == 13) document.getElementById('myBtn3').click()"> <button id="myBtn3" type="submit" class="btn-primary" >Next Question</button>`
+            document.getElementById("myBtn3").addEventListener("click", fourthQuestion);
+        }
+   
+        function fourthQuestion () {
+            answer3 = document.getElementById("3answer").value;
+            console.log(answer3);
+            localStorage.setItem( "answer3", answer3);
+            document.getElementById("content").innerHTML = 
+            `<div id="content4"> What was the last thing you posted on social media?</div> <br> <input type="text" id="4answer" placeholder="Your answer" name="pot4" required minlenth="3" maxlength="200" onkeydown = "if (event.keyCode == 13) document.getElementById('myBtn4').click()"> <button id="myBtn4" type="submit" class="btn-primary" >Next Question</button>`
+            document.getElementById("myBtn4").addEventListener("click", fifthQuestion);
+        }
+
+        function fifthQuestion () {
+            answer4 = document.getElementById("4answer").value;
+            console.log(answer4);
+            localStorage.setItem( "answer4", answer4);
+            location.href='./topics.html'
+        }
+         //location.href='./topics.html'
+        </script>
 
 </body>
 
