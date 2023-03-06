@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <style>
+            .draggable {
+                position: absolute;
+                cursor: pointer;
+                top: 0px;
+                left: 0px;
+            }
+            .draggable2 {
+                position: absolute;
+                cursor: pointer;
+                top: 0px;
+                left: 50px;
+            }
+        </style>
+    </body>
+    <body onmouseup="stopMovement() & startMovement2()">
+        <div>
+            <img width="50%" src="./mountain.png" alt="Mountain slope">
+        </div>
+        <div id="draggable" class="draggable" onmousedown="startMovement(event)">
+            <img src="./teacher.png" width="50px">
+        </div>
+        
+        <div id="draggable2" class="draggable2" onmousedown="startMovement2(event)">
+            <img src="./book.png" width="50px">
+        </div>
+        <script>
+            var drg = document.getElementById("draggable");
+            var xDisplacement = 0;
+            var yDisplacement = 0;
+            function startMovement(e) {
+                xDisplacement = e.pageX - getComputedStyle(drg).left.substring(0, getComputedStyle(drg).left.length - 2);
+                yDisplacement = e.pageY - getComputedStyle(drg).top.substring(0, getComputedStyle(drg).top.length - 2);
+                document.body.onmousemove = moveDraggable;
+            }
+            function stopMovement() {
+                document.body.onmousemove = null;
+            }
+            function moveDraggable(e) {
+                drg.style.top = e.pageY - yDisplacement;
+                drg.style.left = e.pageX - xDisplacement;
+            }
+
+
+
+
+            var drg2 = document.getElementById("draggable2");
+            var xDisplacement2 = 0;
+            var yDisplacement2 = 0;
+            function startMovement2(e) {
+                xDisplacement2 = e.pageX - getComputedStyle(drg2).left.substring(0, getComputedStyle(drg2).left.length - 2);
+                yDisplacement2 = e.pageY - getComputedStyle(drg2).top.substring(0, getComputedStyle(drg2).top.length - 2);
+                document.body.onmousemove = moveDraggable2;
+            }
+
+
+            function stopMovement2() {
+                document.body.onmousemove = null;
+            }
+          
+
+
+            function moveDraggable2(e) {
+                drg2.style.top = e.pageY - yDisplacement;
+                drg2.style.left = e.pageX - xDisplacement;
+            }
+        </script>
+    </body>
+</html>

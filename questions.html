@@ -9,16 +9,28 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
 
     <title>Brainstorming Activity</title>
+    <style>
+        #center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        };
+    </style>
 </head>
 
 <body>
-    <span id="content">
-        <div id="content">What would you do if you had two hours of free time? </div>
-        <br>
-        <input type="text" id="1stanswer" placeholder="Your answer" name="pot1" required minlenth="3" maxlength="200" onkeydown = "if (event.keyCode == 13)
-        document.getElementById('myBtn').click()">
-        <button id="myBtn" type="submit" class="btn-primary" >Next Question</button>
-    </span>
+    
+    <div id="center">
+            <span id="content">
+                <div id="content">What is your research topic? </div>
+                <br>
+                <input type="text" id="1stanswer" placeholder="Your answer" name="pot1" required minlenth="3" maxlength="200" onkeydown = "if (event.keyCode == 13)
+                document.getElementById('myBtn').click()">
+                <button id="myBtn" type="submit" class="btn-primary" >Next Question</button>
+            </span>
+    </div>
+
     
 
     <script>
@@ -32,16 +44,27 @@
             console.log(answer1);
             localStorage.setItem( "answer1", answer1);
             document.getElementById("content").innerHTML = 
-            `<div id="content2">What was the topic of your last text message? </div> <br> <input type="text" id="2answer" placeholder="Your answer" name="pot2" required minlenth="3" maxlength="200"onkeydown = "if (event.keyCode == 13) document.getElementById('myBtn2').click()"> <button id="myBtn2" type="submit" class="btn-primary" >Next Question</button>`
-            document.getElementById("myBtn2").addEventListener("click", thirdQuestion);
+            `<div style="margin-bottom: 20px;"><div id="content2">What about this topic interests you? </div> <input style="width: 400px;"  type="text" id="2answer" name="pot2" required minlenth="3" maxlength="200"onkeydown = "if (event.keyCode == 13) document.getElementById('myBtn2').click()"></div>
+        
+            <div style="margin-bottom: 20px;"><div id="content3">Why is this topic important to you or other people? </div><input style="width: 400px;" type="text" id="3answer"  name="pot3" required minlenth="3" maxlength="200" onkeydown = "if (event.keyCode == 13) document.getElementById('myBtn3').click()"></div>
+          
+            <div style="margin-bottom: 20px;"><div id="content3">Who is involved in this situation? </div><input style="width: 400px;" type="text" id="3answer"  name="pot3" required minlenth="3" maxlength="200" onkeydown = "if (event.keyCode == 13) document.getElementById('myBtn3').click()"></div>
+            
+            <div style="margin-bottom: 20px;"><div id="content3">What part of the world do you want to focus on? </div><input style="width: 400px;" type="text" id="3answer"  name="pot3" required minlenth="3" maxlength="200" onkeydown = "if (event.keyCode == 13) document.getElementById('myBtn3').click()"></div>
+            
+            <div style="margin-bottom: 20px;"><div id="content4"> What time period do you want to focus on?</div> <input style="width: 400px;" type="text" id="4answer"  name="pot4" required minlenth="3" maxlength="200" onkeydown = "if (event.keyCode == 13) document.getElementById('myBtn4').click()"> 
+            <br>
+            <br>
+            <button id="myBtn3" type="submit" class="btn-primary" >Submit</button>`
+            document.getElementById("myBtn3").addEventListener("click", thirdSlide);
         }
 
-        function thirdQuestion () {
+        function thirdSlide () {
             answer2 = document.getElementById("2answer").value;
             console.log(answer2);
             localStorage.setItem( "answer2", answer2);
             document.getElementById("content").innerHTML = 
-            `<div id="content3">What was the subject of the last tick-tock you watched? </div> <br> <input type="text" id="3answer" placeholder="Your answer" name="pot3" required minlenth="3" maxlength="200" onkeydown = "if (event.keyCode == 13) document.getElementById('myBtn3').click()"> <button id="myBtn3" type="submit" class="btn-primary" >Next Question</button>`
+            `<div>hello world</div>`
             document.getElementById("myBtn3").addEventListener("click", fourthQuestion);
         }
    
